@@ -77,3 +77,31 @@
 
 - App 의 컴포넌트 가시성 상태 변경
 - setModalIsVisible로 false로 변경 후 props로 내려준다.
+
+# 이미지로 작업하기 & 색상 변경하기
+
+- React의 Img태그 처럼
+- React Native는 Image 컴포넌트를 사용 가능하다.
+- source={require()} 안에 경로를 넣어주고
+- style로 style 또한 지정 가능
+
+# 앱 최종 마무리
+
+- 모든 화면을 같은 색으로 하고 싶으면
+- app.json안에 "backgroundColor": "색상코드"로 추가.
+- 어둡게 하면 상태표시줄이 보기 힘들어짐.
+- 이때 App.js에 import StatusBar를 해준다.
+- StautsBar 컴포넌트의 스타일을 light로 바꿔주면 잘보임
+
+```js
+<>
+  <StatusBar
+    style="light"
+  />
+  <여기서부터 코드 시작>
+</>
+```
+
+# 모듈 요약
+
+- 간단한 애플리케이션 구축
