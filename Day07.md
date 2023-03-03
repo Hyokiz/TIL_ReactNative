@@ -68,4 +68,12 @@
 <Modal visible={props.visible}animationType="slide">
 ```
 
+# 모달 오버레이 스타일링하기
 
+- Button을 커스텀 하지 않는 이상 Button의 스타일을 변경하기는 쉽지 않다.
+- View를 div 처럼 사용하여 button을 감싼 후, view를 변경한다.
+
+# 모달 열기 & 닫기
+
+- App 의 컴포넌트 가시성 상태 변경
+- setModalIsVisible로 false로 변경 후 props로 내려준다.
