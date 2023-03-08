@@ -130,3 +130,97 @@
 
 ## 제목 컴포넌트 생성하기
 
+- Title.js로 분리하여 사용
+
+## 색상을 글로벌 영역에서 관리하기
+
+- 자주 사용하는 파일을 constants 폴더 생성 후 작성.
+- 변수명 뒤에 숫자로 명암 등을 관리할 수 있다.
+
+## 무작위 수 생성, 사용 & 디스플레이하기
+
+- 컴포넌트 밖에서 함수 정의
+- 컴포넌트를 import 하고 컴포넌트 사이에 {}를 값으로 넣어주면 {children}으로 받아올 수 있다.
+- 텍스트만?
+
+```js
+<NumberContainer>{currentGuess}</NumberContainer>
+```
+
+## 게임 종료 확인하기
+
+- 숫자를 비교하여 추측숫자와 내가 입력한 숫자가 같을 때 게임을 끝내야 함.
+- React에서는 useEffect로 실행될때마다 비교
+
+## 아이콘(버튼) 으로 작업하기
+
+- expo 로 작업할 경우 import {} from "@expo/vector-icons 해주면 아이콘들이 들어있다.
+
+## React Native 커스텀 폰트 추가 & 사용하기
+
+- npx expo install expo-font 혹은 expo install expo-font로 다운로드 받아주고
+- App.js 에서 import {useFonts} from "expo-font"해준다
+- useFonts 안에 폰트들을 추가해주고
+- 일반적으로 글꼴이 로딩되는 동안 로딩화면을 띄우거나 스플래시 화면을 띄움.
+- 이것을 위해 npx expo install expo-app-loading or expo install expo-app-loading 다운로드
+  - 스플래시 화면을 연장하고 특정 조건을 충족하기 전까지 스플래시 화면이 나타나도록 함.
+
+- import AppLoading 해주고
+- useFonts가 반환하는 배열을 활용.
+
+```js
+const [fontsLoaded] = useFonts({})
+```
+
+  - 첫번째 요소는 boolean
+
+```js
+const [fontsLoaded] = useFonts({})
+
+if (!fontsLoaded) {
+  return <AppLoading />
+}
+```
+- 나머지 Font를 적용하고 싶은 곳에 가서 fontFamily 추가
+
+## 이미지 추가하기
+
+- Image 내장 컴포넌트로 추가.
+- 이후 스타일링 해주기
+
+## 중첩 텍스트 사용 & 스타일링하기
+
+- Text 안에 Text를 중첩으로 사용 가능하다.
+- 다른 스타일을 적용 가능하다.
+- 자식 Text 컴포넌트는 부모 Text 컴포넌트의 영향을 받는다.
+
+## 게임 시작/재시작을 위한 로직 추가, 요약화면 띄우기
+
+- Gameover 화면에서 버튼 클릭 시 메인화면으로 돌아가게 함
+- props로 함수를 내려줘서 상태를 바꾸면 가능
+
+```js
+const startNewGameHandler = () => {
+  setUserNumber(null);
+  setGuessRounds(0);
+}
+```
+
+## 게임 라운드 로깅하기
+
+- Text 를 사용해도 된다.
+- 길어질 것 같으면 FlatList 사용
+
+## FlatList를 통해 데이터 출력하기
+
+- data 프로퍼티 안에 배열 넣어주고
+- renderItem 프로퍼티 안에 데이터마다 적용 할 부분 넣어주고. 기본적으로 itemData를 받는다. 표시할때는 itemData.item 으로 받음
+- 보통 데이터 객체에서는 key 프로퍼티를 찾아줌.
+
+## 게임 라운드 로그 스타일링하기
+
+- 컴포넌트를 추가 해주고
+- FlatList 최신화 해준다.
+
+## 최종 마무리
+
